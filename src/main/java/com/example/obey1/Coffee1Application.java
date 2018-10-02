@@ -41,7 +41,8 @@ public class Coffee1Application {
 	@Autowired
 	Total_coffeeRepository totalRepository;
 
-	// Ä¿ÇÇ»èÁ¦
+	// ì»¤í”¼ì‚­ì œ
+	// ìˆ˜ì •ì : 
 	@Transactional
 	@GetMapping("/deleteCoffee/{id}")
 	public String deleteById(@PathVariable int id) {
@@ -49,7 +50,7 @@ public class Coffee1Application {
 		coffeeRepository.deleteById(id);
 		return "redirect:/findall";
 	}
-	// Ä¿ÇÇµî·Ï//
+	// ì»¤í”¼ë“±ë¡//
 	@RequestMapping(value = "/postdata", method = RequestMethod.POST)
 	public ResponseEntity<String> postData(@RequestBody Coffee1 coffee) {
 
@@ -63,7 +64,7 @@ public class Coffee1Application {
 		return new ResponseEntity<>(id, HttpStatus.OK);
 	}
 
-	// ÀÌ¸§À¸·ÎÄ¿ÇÇ»ó¼¼Á¶È¸//
+	// ì´ë¦„ìœ¼ë¡œì»¤í”¼ìƒì„¸ì¡°íšŒ//
 	@RequestMapping(value = "selectCoffee/{id}")
 	@ResponseBody
 	public ModelAndView getCoffeeDetail(@PathVariable int id, Model model) {
@@ -74,7 +75,7 @@ public class Coffee1Application {
 		return new ModelAndView("select");
 	}
 
-	//Ä¿ÇÇ¼öÁ¤	 // 
+	//ì»¤í”¼ìˆ˜ì •	 // 
 	@RequestMapping(value = "findid/{id}")
 	@ResponseBody
 	public Coffee1 findid(@PathVariable int id, Model model) {
@@ -82,7 +83,7 @@ public class Coffee1Application {
 		return coffee;
 	}
 
-	// //Ä¿ÇÇ¼öÁ¤//
+	// //ì»¤í”¼ìˆ˜ì •//
 	@RequestMapping(value = "/updatedata/{id}", method = RequestMethod.POST)
 	public ResponseEntity<String> updateData(@PathVariable int id,
 			@RequestBody Coffee1 coffee) {
@@ -108,7 +109,7 @@ public class Coffee1Application {
 
 	
 //	/*
-//	 * Ä¿ÇÇ Å×ÀÌºí ÀüÃ¼¸¦ ºÒ·¯¿À´Â ¸Ş¼Òµå
+//	 * ì»¤í”¼ í…Œì´ë¸” ì „ì²´ë¥¼ ë¶ˆëŸ¬ì˜¤ëŠ” ë©”ì†Œë“œ
 //	 */
 	@CrossOrigin("*")
 	@GetMapping(value = "/getCoffeeList")
@@ -118,7 +119,7 @@ public class Coffee1Application {
 	}
 	
 	
-	//ÆÇ¸Å
+	//íŒë§¤
 		@CrossOrigin("*")
 	   @GetMapping(value="/getCoffees")
 	   public @ResponseBody ArrayList<Coffee1> getCoffees(@RequestParam(value="menu") String menuString) {
